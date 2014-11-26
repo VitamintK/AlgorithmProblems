@@ -33,7 +33,47 @@ def bunny(x):
     while weight_placements[-1] == 1:
         weight_placements.pop()
     return [translation_dict[place] for place in weight_placements]
-    #return (x+1)%3 - 1, ((x+3+1)%9)/3 - 1, (((x+9+3+1)%27)/9) - 1
 
-for i in range(1,40):
-    print '{}: {}'.format(i,bunny(i))
+#name that rabbit
+def to_num(chara):
+    return ord(chara.lower())-96
+
+def name_rabbit(names):
+    return sorted(names, key = lambda name: (sum(map(lambda a: to_num(a), name)), name), reverse = True)
+
+#rabbit hutch water height
+def water_hutch(heights):
+    if len(heights) < 3:
+        return 0
+    local_maxima = []
+    for hindex, height in enumerate(heights):
+        if hindex in (0, len(heights)-1):
+            local_maxima.append(height)
+            continue
+        left = heights[hindex - 1]
+        right = heights[hindex + 1]
+        if height >= left and height >= right:
+            local_maxima.append(height)
+        else:
+            local_maxima.append(-1)
+
+    water_amount = 0
+    left_bound = -1
+    right_bound = max(local_maxima[1:])
+    for hindex, height in enumerate(heights):
+        left_bound = max(local_maxima[hindex], left_bound)
+        if hindex in (0, len(heights)-1):
+            continue
+        else:
+            if local_maxima[hindex] == right_bound:
+                right_bound = max(local_maxima[hindex+1:])
+            water = min(left_bound, right_bound) - height
+            if water > 0:
+                water_amount += water
+    return water_amount
+
+x = list(range(50000))
+import random
+random.shuffle(x)
+x = x + x
+#print water_hutch(x)
