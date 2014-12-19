@@ -1,3 +1,4 @@
+import sys
 def palindex(string):
     for i in range(len(string)//2):
         if string[i] != string[-1*(i+1)]:
