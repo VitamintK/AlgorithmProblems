@@ -77,3 +77,50 @@ import random
 random.shuffle(x)
 x = x + x
 #print water_hutch(x)
+
+def squarec(x, amount, squarelist):
+    cache = [[0 for w in range(5)] for j in range(len(squarelist) + 1)]
+    for j in range(1, len(squarelist) + 1):
+        pass
+        for w in range(1, 5):
+            if wt > w:
+                cache[j][w] = cache[j-1][w]
+            else:
+                cache[j][w] = max(cache[j-1][w],
+                                  cache[j-1][w-wt] + val)
+    result = []
+    w = limit
+    #for j in range(len(
+
+def squares(x):
+    squarelist = []
+    i = 1
+    while i*i <= x:
+        squarelist.append(i*i)
+        i+=1
+    return squarec(x, 0, list(reversed(squarelist)))
+
+def knapsack01_dp(items, limit):
+    table = [[0 for w in range(limit + 1)] for j in xrange(len(items) + 1)]
+ 
+    for j in xrange(1, len(items) + 1):
+        item, wt, val = items[j-1]
+        for w in xrange(1, limit + 1):
+            if wt > w:
+                table[j][w] = table[j-1][w]
+            else:
+                table[j][w] = max(table[j-1][w],
+                                  table[j-1][w-wt] + val)
+ 
+    result = []
+    w = limit
+    for j in range(len(items), 0, -1):
+        was_added = table[j][w] != table[j-1][w]
+ 
+        if was_added:
+            item, wt, val = items[j-1]
+            result.append(items[j-1])
+            w -= wt
+ 
+    return result
+ 
