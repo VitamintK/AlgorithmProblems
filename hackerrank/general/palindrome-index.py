@@ -5,7 +5,7 @@ def palindex(string):
             if string[i+1] == string[-1*(i+1)] and string[i] != string[-1*(i+2)]:
                 return i
                 
-            else:
+            elif string[i] == string[-1*(i+2)]:
                 return (len(string) - (i+1))
     return -1
 
@@ -20,7 +20,5 @@ hgygsvlfcwnswtuhmyaljkqlqjjqlqkjlaymhutwsnwcwflvsgygh"""
     inplist = []
     for line in inp.split('\n')[1:]:
         print(palindex(line))
-        print (line)
-        print (''.join(reversed(line)))
 
 main()
