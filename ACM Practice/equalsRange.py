@@ -8,12 +8,12 @@ def equals_range(A, key):
     else:
         return None
 
-def find_not(A, key, direction):
-    if A == []:
-        return 0
-    mid_index = len(A)//2
-    mid_value = A[mid_index]
-    if mid_value != key:
+#def find_not(A, key, direction):
+#    if A == []:
+#        return 0
+#    mid_index = len(A)//2
+#    mid_value = A[mid_index]
+#    if mid_value != key:
         return mid_index
     elif direction == 'up':
         return find_not(A[mid_index+1:], key, direction) + mid_index + 1
@@ -28,7 +28,12 @@ def find_match(A, key, _max, _min):
 #    print(mid_index)
 #    print(A)
     if mid_value == key:
-        return [mid_index, _max, _min]
+        if A[mid_index + 1]:
+            
+        elif A[mid_index -1]:
+            
+        else:
+            find_match(
     elif mid_value < key:
         match = find_match(A[mid_index+1:], key, mid_index, _min)
         match[0] += mid_index + 1
