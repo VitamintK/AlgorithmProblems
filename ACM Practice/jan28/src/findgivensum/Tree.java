@@ -7,10 +7,7 @@ public class Tree{
 	public Tree(int value){
 		this.value = value;
 	}
-	
-	public Tree(){
-		
-	}
+	public Tree(){}
 	
 	public void addTree(int newValue){
 		if(newValue != this.value){
