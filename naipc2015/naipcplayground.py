@@ -29,9 +29,13 @@ print(s)
 #   s[1] is the start of p, in which case we can apply the logic recursively
 #       with s[1] as the beginning of the word.
 
+
 def find_p(s):
     for char in s:
+        if char == s[-1]:
+            everything so far is a potential word.
         use char to find the rest of p
         or dont use char to find the rest of p
+        
 
 print(find_p(s))
