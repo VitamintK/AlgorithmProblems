@@ -59,8 +59,8 @@ def print_auto(states_states):
 
 
 def main():
-    #inp = "30 20 8 16"
-    inp = "0 20 8 10"
+    inp = "30 20 8 16"
+    #inp = "0 20 8 10"
     rule, iter_amount, cell_amount, start_states = (int(x) for x in inp.split())
     ruledict = make_dict(rule)
     states_states = run_auto(ruledict, iter_amount, cell_amount, start_states)
