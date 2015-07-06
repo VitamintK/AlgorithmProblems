@@ -1,6 +1,9 @@
 #include<iostream>
 #include<string>
+#include<vector>
+#include<array>
 
-float getChange(goal){
-	return 1.0;
+std::vector<std::array<float, 4>> cache;
+float* getChange(int goal){
+	return 0;
 }
