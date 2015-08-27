@@ -32,5 +32,11 @@
     <ClInclude Include="mit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LIS.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LIS2.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
