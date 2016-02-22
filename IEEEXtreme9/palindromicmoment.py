@@ -24,3 +24,23 @@ def timecombos(components):
     return {components['h']+components['mm']+components['ss'], components['hh']+components['mm']+components['ss'], components['H']+components['mm']+components['ss'], components['HH']+components['mm']+components['ss']}
 
 alltimecombos = [x for l in [timecombos(c) for c in times] for x in l]
+
+def datecombo(M, MM, d, dd, yyyy, yy):
+    return {'{}{}{}'.format(*x) for x in {(M,d,yy), (MM,d,yy), (M,dd,yy), (MM,dd,yy), (M,d,yyyy), (MM,d,yyyy), (M,dd,yyyy), (MM,dd,yyyy), (d,M,yy), (d,MM,yy), (dd,M,yy), (dd,MM,yy), (d,M,yyyy), (d,MM,yyyy), (dd,M,yyyy), (dd,MM,yyyy)}}
+for _ in range(n):
+    year = int(input())
+    time = datetime.datetime(year, 1, 1, 0, 0, 0)
+    while time.minute == 0:
+        M = time.month
+        MM = "{:02}".format(M)
+        d = time.day
+        dd = "{:02}".format(d)
+        yyyy = time.year
+        yy = str(yyyy)[-2:]
+        for date_, time_ in product(datecombo(M,MM,d,dd,yyyy,yy), alltimecombos):
+            if date_+time_ == reversed(date_+time_):
+                print(date_+time_)
+        
+        
+        time = time + day
+    
