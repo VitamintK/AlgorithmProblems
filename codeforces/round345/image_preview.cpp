@@ -31,10 +31,10 @@ int main(){
 			cost+= b;
 		}
 		total_cost+=cost;
-		cout << total_cost << " ";
+		//cout << total_cost << " ";
 		forwards.push_back(total_cost);
 	}
-	cout <<endl;
+	//cout <<endl;
 	long max_back = n-1;
 	long most_photos = 0;
 	for(int i = 0; i<n; i++){

@@ -17,7 +17,7 @@ int main(){
 	map<pair<long, long>, long> has;
 	long x;
 	long y;
-	long ans = 0;
+	long long ans = 0;
 	for(long i = 0; i<n; i++){
 		scanf("%ld %ld", &x, &y);
 		ans+=cols[x];
