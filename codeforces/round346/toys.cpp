@@ -32,8 +32,8 @@ int main(){
 	//cout << toyi << endl;
 	while(cost+toyi <= m && toyi < 1000000001){
 			v.push_back(toyi);
-			toyi++;
 			cost+=toyi;
+			toyi++;
 		}
 	cout << v.size() << endl;
 	for(long long i = 0; i < v.size(); i++){ //size is unsigned int, not long long?

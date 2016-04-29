@@ -24,7 +24,7 @@ int main(){
 		s.push_back(pair<int,char>(a,b));
 	}
 	char l = '.';
-			cout <<"here";
+		//	cout <<"here" << endl;
 
 	for(int i = 0; i < s.size(); i++){
 		if(l == s[i].second){
@@ -35,8 +35,9 @@ int main(){
 		} else {
 			l = s[i].second;
 		}
-		cout <<"here";
+	//	cout <<"here" << endl;
 	}
+	l = '.';
 	for(int i = 0; i < t.size(); i++){
 		if(l == t[i].second){
 			l = t[i].second;
@@ -52,13 +53,13 @@ int main(){
 		int goods = 0;
 
 	if(s.size() == 1){
-		cout <<"here";
+	//	cout <<"here" << endl;
 		for(int i = 0; i < t.size(); i++){
 			if(t[i].second == s[0].second && t[i].first >= s[0].first){
 				goods+= t[i].first + 1 - s[0].first;
 			}
 		}
-		cout <<"here";
+	//	cout <<"here"<<endl;
 	} else {
 		for(int i = 0; i < t.size(); i++){
 			for(int j = 0; j<s.size(); j++){
@@ -81,7 +82,6 @@ int main(){
 			}
 		}
 	}
-	cout << goods;
-
+	cout << goods<<endl;
 	return 0;
 }

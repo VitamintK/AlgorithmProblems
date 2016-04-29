@@ -1,0 +1,1 @@
+Regex_Pattern = r'^(.{2})*10(?!(.{2})*01)'	# Do not delete 'r'.

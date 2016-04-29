@@ -38,7 +38,8 @@ int main(){
 		long long hsh = hash<string>{}(ss.second);
 		long long temp = hsh;
 		hsh << 16;
-		hsh+= temp*2 - 1;
+		hsh^= temp;
+		hsh*=3644798167;
 		if(un[ss.first].count(hsh) < 1){
 		    um[ss.first] ^= hsh;
 		    un[ss.first].insert(hsh);

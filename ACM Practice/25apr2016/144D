@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <string>
+#include <utility>
+#include <algorithm>
+using namespace std;
+
+int main(){
+	int n, k;
+	long w, h, q;
+	cin >> n >> k;
+	for(int i = 0; )
+	return 0;
+}
