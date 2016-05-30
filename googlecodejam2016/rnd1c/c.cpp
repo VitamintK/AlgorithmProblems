@@ -13,8 +13,12 @@ int main() {
     int J, P, S;
     int K;
     cin >> T;
+
     for(int i = 0; i < T; i++){
         cin >> J >> P >> S >> K;
+        if(J <= P && J <= S){
+            
+        }
     }
     return 0;
 }

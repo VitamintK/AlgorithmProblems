@@ -246,3 +246,11 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+
+*.in
+*.out
+*.exe
+hackerrank/hourrank_8/out1.txt
+hackerrank/hourrank_8/out1_correct.txt
+hackerrank/hourrank_8/test1.txt
