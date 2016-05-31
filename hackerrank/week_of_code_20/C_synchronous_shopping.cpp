@@ -14,13 +14,13 @@ struct path{
     int cost_so_far;
     int node_to_explore;
      int fish_purchased;
-    set<pair<int,int> > nodes_explored;
+    //set<pair<int,int> > nodes_explored;
 };
 
 inline bool operator<(const path& lhs, const path& rhs)
 {
   return lhs.cost_so_far < rhs.cost_so_far || (lhs.cost_so_far == rhs.cost_so_far && lhs.node_to_explore < rhs.node_to_explore) ||
-      (lhs.cost_so_far == rhs.cost_so_far && lhs.node_to_explore == rhs.node_to_explore && lhs.fish_purchased < rhs.fish_purchased) || (lhs.cost_so_far == rhs.cost_so_far && lhs.node_to_explore == rhs.node_to_explore && lhs.fish_purchased == rhs.fish_purchased && lhs.nodes_explored != rhs.nodes_explored);
+      (lhs.cost_so_far == rhs.cost_so_far && lhs.node_to_explore == rhs.node_to_explore && lhs.fish_purchased < rhs.fish_purchased);
 }
 
 long fish[1024];
@@ -36,15 +36,15 @@ long djikstra(vector<vector<edge>> &graph, int from, int to){
     //    }
         //cout << endl;
     //}
-    set<path*> *exploring = new set<path*>;
+    set<path> exploring;
     set<int> explored;
-    path tmp{0, 1, fish_sold_at[1], set<pair<int, int> >()};
-    exploring->insert(&tmp);
+    path tmp{0, 1, fish_sold_at[1]};
+    exploring.insert(tmp);
     path explore;
-    while(!exploring->empty()){
-        explore = **(exploring->begin());
+    while(!exploring.empty()){
+        explore = *(exploring.begin());
         //cout << " deleting: " << exploring.size() << "->";
-        exploring->erase(exploring->begin());
+        exploring.erase(exploring.begin());
         //cout << exploring.size() << endl;
         if(shortest[explore.node_to_explore][explore.fish_purchased] <= explore.cost_so_far){
             continue;
@@ -53,17 +53,17 @@ long djikstra(vector<vector<edge>> &graph, int from, int to){
         }
         for(const edge &ed: graph[explore.node_to_explore]){
             //cout << explore.node_to_explore << "->" << ed.to << endl;
-          //  if(shortest[ed.to][explore.fish_purchased|fish_sold_at[explore.node_to_explore]] <= ed.cost+explore.cost_so_far){
-          //      continue;
-          //  } else {
-          //      shortest[ed.to][explore.fish_purchased|fish_sold_at[explore.node_to_explore]] = ed.cost+explore.cost_so_far;
-          //  }
+            if(shortest[ed.to][explore.fish_purchased|fish_sold_at[explore.node_to_explore]] <= ed.cost+explore.cost_so_far){
+               continue;
+          } else {
+              //shortest[ed.to][explore.fish_purchased|fish_sold_at[explore.node_to_explore]] = ed.cost+explore.cost_so_far;
+          }
             //cout <<"nodes explored: ";
             //for(pair<int,int> kk : explore.nodes_explored){
             //    cout << kk.first << "->" << kk.second << ", ";
             //}
             //cout << endl;
-            if(explore.nodes_explored.count(pair<int, int>(explore.node_to_explore, ed.to)) < 1){
+           // if(explore.nodes_explored.count(pair<int, int>(explore.node_to_explore, ed.to)) < 1){
                 //cout <<"\tgood" << endl;
                 //if we have not yet traversed this edge in this direction, then do so.
                 if(ed.to == n){
@@ -76,15 +76,15 @@ long djikstra(vector<vector<edge>> &graph, int from, int to){
                     //continue;
                 }
                
-                    path *newp = new path{explore.cost_so_far + ed.cost, ed.to, explore.fish_purchased | fish_sold_at[explore.node_to_explore],
-                         set<pair<int,int> >(explore.nodes_explored)};
-                    newp->nodes_explored.insert(make_pair(explore.node_to_explore, ed.to));
+                    path newp{explore.cost_so_far + ed.cost, ed.to, explore.fish_purchased | fish_sold_at[explore.node_to_explore]};
+                         //set<pair<int,int> >(explore.nodes_explored)};
+                    //newp->nodes_explored.insert(make_pair(explore.node_to_explore, ed.to));
                     //cout << "  " << exploring->size() << " ";
-                    exploring->insert(newp);
+                    exploring.insert(newp);
                     //cout << exploring->size() << " " << &newp << endl;
                 
             }
-        }
+        //}
     }
     //cout << k << endl;
     //cout << (1 << k) << endl;
