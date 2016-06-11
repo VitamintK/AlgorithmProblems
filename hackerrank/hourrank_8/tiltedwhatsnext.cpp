@@ -46,7 +46,7 @@ int main() {
             new_n = new_n + 2;
             int pert_zero;
             if(n%2 == 0){
-                //new_n = new_n - 1;
+                new_n = new_n - 1;
                 pert_zero = n-3;
                 as[pert_zero+2]++;
                 as[pert_zero] = as[pert_zero] - 1;
@@ -65,15 +65,15 @@ int main() {
             //as[pert_zero+2]++;
         }
     
-        // for(int i =0; i < n+1; i++){
-        //     if(as[i+1] == 0){
-        //         as[i] = as[i] + as[i+2];
-        //         as[i+2] = -1;
-        //         as[i+1] = -1;
-        //         new_n-=2;
-        //     }
-        // }
-        // if(as[i+3]) 
+        for(int i =0; i < n+1; i++){
+            if(as[i+1] == 0){
+                as[i] = as[i] + as[i+2];
+                as[i+2] = -1;
+                as[i+1] = -1;
+                new_n-=2;
+            }
+        }
+        if(as[i+3]) 
 
     cout << new_n << endl;
     for(int i = 0; i < new_n; i++){
