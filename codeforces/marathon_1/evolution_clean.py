@@ -7,10 +7,8 @@ CHANCE = 0.0685
 CHILDREN = 7
 import sys
 import random
-def random_str():
-    return ''.join([str(random.choice([1,0])) for _ in range(N)])
 def main():
-    parent = 
+    parent = ''.join([str(random.choice([1,0])) for _ in range(N)])
     for i in range(X//CHILDREN):
         a = 0
         scores = dict()
