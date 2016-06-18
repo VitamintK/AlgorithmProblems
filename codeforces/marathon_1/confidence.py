@@ -4,7 +4,7 @@ K = 2000
 X = 100
 
 #CHANCE = 0.05
-CHANGES = 200 #also try 100 or 200
+CHANGES = 50 #also try 100 or 200
 
 import sys
 import random
@@ -45,11 +45,13 @@ def main():
         #spawn = ''.join([str(1-int(x) if random.random()<CHANCE else x) for x in OG])
         #score = get_score(guess string, true_string)
         spawn = list(try_hard(confidences, list(spawn)))
-        bitchanges = random.sample(range(score), CHANGES)
+        # bitchanges = random.sample(range(score), CHANGES)
+        bitchanges = range(i*CHANGES, i*CHANGES + CHANGES)
         for bit_index in bitchanges:
             spawn[bit_index] = str(1-int(spawn[bit_index]))
         new_score = get_score(''.join(spawn), true_string)
-        confidence = (new_score - score + CHANGES)/2 #NOT A TRUE CALCULATION
+        confidence = (new_score - score)/2 #NOT A TRUE CALCULATION
+        #print("confidence: {},	old_score: {},	new_score:{}".format(confidence, score, new_score))
         #because the change in amount correct is not simply new_score - score
         for bit_index in bitchanges:
             confidences[bit_index]+= ((int(spawn[bit_index])*2)-1)*confidence
