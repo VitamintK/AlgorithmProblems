@@ -4,7 +4,7 @@ K = 2000
 X = 100
 
 #CHANCE = 0.05
-CHANGES = 50 #also try 100 or 200
+CHANGES = 200 #also try 100 or 200
 
 import sys
 import random
@@ -26,7 +26,7 @@ def get_score(guess_string, true_string = None):
         #get the score from the online judge
         print(guess_string)
         sys.stdout.flush()
-        return input()
+        return int(input())
 def try_hard(confidences, spawn):
     #make the optimum string according to our confidences
     s = list(spawn)
@@ -46,8 +46,8 @@ def main():
     spawn = OG
     for i in range(X-1):
         spawn = list(try_hard(confidences, list(spawn)))
-        # bitchanges = random.sample(range(score), CHANGES) #randomly select bits to flip
-        bitchanges = range(i*CHANGES, i*CHANGES + CHANGES) #select the immediately proceeding bits to flip
+        bitchanges = random.sample(range(score), CHANGES) #randomly select bits to flip
+        #bitchanges = range(i*CHANGES, i*CHANGES + CHANGES) #select the immediately proceeding bits to flip
         for bit_index in bitchanges:
             spawn[bit_index] = str(1-int(spawn[bit_index]))
         new_score = get_score(''.join(spawn), true_string)
@@ -56,6 +56,7 @@ def main():
         for bit_index in bitchanges:
             confidences[bit_index]+= ((int(spawn[bit_index])*2)-1)*confidence
         score = new_score
-        print(score)
+        if LOCALTESTING:
+            print(score)
     return (confidences)
 c = main()
