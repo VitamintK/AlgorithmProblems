@@ -1,4 +1,4 @@
-LOCALTESTING = True
+LOCALTESTING = False
 N = 5000
 K = 2000
 X = 100
