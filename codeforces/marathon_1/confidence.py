@@ -4,7 +4,7 @@ K = 2000
 X = 100
 
 #CHANCE = 0.05
-CHANGES = 200 #also try 100 or 200
+CHANGES = 500 #also try 100 or 200
 
 import sys
 import random
@@ -58,5 +58,6 @@ def main():
         score = new_score
         if LOCALTESTING:
             print(score)
+    get_score(try_hard(confidences, list(spawn)), true_string)
     return (confidences)
 c = main()
