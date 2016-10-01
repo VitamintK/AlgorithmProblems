@@ -7,6 +7,7 @@
 using namespace std;
 //https://www.hackerrank.com/challenges/bear-and-steady-gene
 bool wegood(int minimum[], int real[]){
+    //each of the real (actual) character counts is at least the minimum character count
     for(int i = 0; i < 4; i++){
         if(real[i] < minimum[i]){
             return false;
@@ -43,10 +44,13 @@ int main() {
         return 0;
     }
     while(!wegood(ps, counts) && right < k.length()){
+        //while we don't yet have the minimal set of chars to replace, increment the right pointer
         counts[dict[k[right]]]++;
         right++;
         while(wegood(ps, counts)){
+            //while we already do have the minimal set of chars to replace, increment the left pointer
             bestans = min(bestans, right-left);
+            //since we have a suitable candidate answer: if it is less than the previous best candidate, it is the new best.
             counts[dict[k[left]]]--;
             left++;
         }
