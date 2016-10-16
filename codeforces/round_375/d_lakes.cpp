@@ -29,7 +29,7 @@ using namespace std;
 int main(){
 	int n, m, k;
 	cin >> n >> m >> k;
-	pair<int,int> lakes[1000];
+	pair<int,int> lakes[2600];
 	//vector<int> lake_substance;
 	int actual_lakenum = 0;
 	int lakenum = 0;
