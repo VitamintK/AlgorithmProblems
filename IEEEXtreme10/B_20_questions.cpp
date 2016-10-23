@@ -22,20 +22,9 @@
 #include <set>
 #include <queue>
 #include <utility>
-//LMAO THRE'S NO WAY THIS IS THIS EASY
-//ok it wasn't this easy apparently :(
+#define ll long long
 using namespace std;
+
 int main(){
-	long long n;
-	cin >> n;
-	long long a;
-	long long ans = 0;
-	for(long long i = 0; i < n; i++){
-		cin >> a;
-		ans+=a;
-	}
-	ans-= a;
-	long long A = (ans - (ans + a));
-	long long B = (ans + a);
-	cout << max(A, B) << endl;
+	ll t = 
 }
