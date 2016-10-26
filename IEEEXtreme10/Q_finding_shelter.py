@@ -32,3 +32,4 @@ for i in range(n):
     ln+=get_distance(soldiers[i],shelters[shelter_for_soldier[i]])
 print(k)
 print(ln)
+#it didn't work.
