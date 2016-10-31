@@ -49,7 +49,6 @@ vector<pair<int, int>> pacificAtlantic(vector<vector<int>>& matrix) {
         }
         while(!to_explore.empty()){
             pair<int, int> p = to_explore.back(); //row, col
-            cout << p.first << ", " << p.second << endl;
             to_explore.pop_back();
             if(p.first - 1 >= 0){
                 if(pac[p.first - 1][p.second] == 0){
@@ -92,19 +91,17 @@ vector<pair<int, int>> pacificAtlantic(vector<vector<int>>& matrix) {
                 }
             }
         }
-        cout << " atlantic" << endl;
         //atlantic
         for(int col = 0; col < matrix[0].size(); col++){
             atl[matrix.size() - 1][col] = 1;
             to_explore.push_back(make_pair(matrix.size() - 1, col));
         }
-        for(int row = 1; row < matrix.size(); row++){
+        for(int row = 0; row < matrix.size(); row++){
             atl[row][matrix[0].size() - 1] = 1;
             to_explore.push_back(make_pair(row, matrix[0].size() - 1));
         }
         while(!to_explore.empty()){
             pair<int, int> p = to_explore.back(); //row, col
-            cout << p.first << " " << p.second << endl;
             to_explore.pop_back();
             if(p.first - 1 >= 0){
                 if(atl[p.first - 1][p.second] == 0){
@@ -147,13 +144,11 @@ vector<pair<int, int>> pacificAtlantic(vector<vector<int>>& matrix) {
                 }
             }
         }
-        cout << "done with atl" << endl;
         //ok
         for(int i = 0; i < matrix.size(); i++){
             for(int j =0 ; j < matrix[0].size(); j++){
                 if(atl[i][j] == 1 && pac[i][j] == 1){
                     ans.push_back(make_pair(i, j));
-                    cout << i << " " << j << endl;
                 }
             }
         }
