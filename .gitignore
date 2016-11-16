@@ -250,6 +250,7 @@ FakesAssemblies/
 
 *.in
 *.out
+!ICPCs/2016_socal_regional/testcases/*
 *.exe
 hackerrank/hourrank_8/out1.txt
 hackerrank/hourrank_8/out1_correct.txt
