@@ -25,6 +25,7 @@
 
 using namespace std;
 int m;
+//shoulda been minimax problem but this is incomplete.
 vector<vector<pair<char, pair<int, int> > > > all_state(vector<pair<char, pair<int, int> > >fp, 
 	vector<pair<char, pair<int, int> > >sp){
 	vector<vector<pair<char, pair<int, int> > > > all_states;
