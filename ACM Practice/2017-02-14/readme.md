@@ -9,8 +9,17 @@ in order of difficulty:
 
 In my C++ solutions, I use `#define ll long long`, so `ll` everywhere in the code represents `long long`.
 
-problem categories (hover over to see):
+problem categories (spoilers):
 
-* [hackerrank in a string](greedy/easy)
-* [knightl on chessboard](shortest-path search through unweighted 2d grid - BFS)
-* [prefix-neighbors](trie and tree-DP)
+<details> 
+  <summary>hackerrank in a string </summary>
+   greedy/easy 
+</details>
+<details> 
+  <summary>knightl on chessboard </summary>
+   shortest-path search through unweighted 2d grid - BFS
+</details>
+<details> 
+  <summary>prefix-neighbors </summary>
+   trie and tree-DP 
+</details>
