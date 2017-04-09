@@ -1,0 +1,1 @@
+This folder is for problems that I either barely solved, nearly solved, didn't solve, or didn't solve satisfactorily.
