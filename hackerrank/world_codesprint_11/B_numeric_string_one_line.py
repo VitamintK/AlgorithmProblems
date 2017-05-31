@@ -1,0 +1,1 @@
+print(((lambda s, k, b, m: reduce(lambda n,i: ((b*(n[0]-int(s[i-k])*pow(b,k-1,m))%m+int(s[i]))%m,n[1]+(b*(n[0]-int(s[i-k])*pow(b,k-1,m))+int(s[i]))%m), range(k,len(s)), (int(s[:k],b)%m,int(s[:k],b)%m)))(raw_input(), *map(int, raw_input().split())))[1])

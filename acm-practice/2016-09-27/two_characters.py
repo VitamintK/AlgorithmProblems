@@ -1,0 +1,2 @@
+print((lambda _, w: max(len([l for l in w if l in (i,j)]) if not (lambda x: (any(x[y]==x[y-1] for y in range(1,len(x))) or len(x)==1) )([l for l in w if l in (i,j)]) else 0 for i in 'abcdefghijklmnopqrstuvwxyz' for j in 'abcdefghijklmnopqrstuvwxyz'))(input(), input()))
+#https://www.hackerrank.com/contests/world-codesprint-7/challenges/two-characters/copy-from/1301772613
