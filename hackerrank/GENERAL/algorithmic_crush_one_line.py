@@ -1,0 +1,1 @@
+print(reduce((lambda x, y: (x[0]+y, max(x[1], x[0]+y))), (lambda l, N, M: l if [(lambda a, b, k: l.__setitem__(a-1,l[a-1]+k) if (l.__setitem__(b,l[b]-k) or True) else None)(*map(int, raw_input().split()))  for i in range(M)] else None)(*(lambda N, M: ([0]*(N+1), N, M))(*map(int, raw_input().split()))), (0,0))[1]) #updating a difference table and then reducing it to find the max
