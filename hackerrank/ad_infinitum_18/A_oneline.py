@@ -1,0 +1,1 @@
+print((lambda b, a: int(2*a/b + 0.999999999))(*map(int, input().split())))

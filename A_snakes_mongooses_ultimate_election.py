@@ -1,0 +1,1 @@
+[print((lambda x: "mongooses" if x > 0 else ("snakes" if x <0 else "tie")) ((lambda s, l: (s.count('m') - s.count('s') + len(l)) if [l.append(i-1) if i > 0 and s[i] == 'm' and s[i-1] == 's' and (i-1) not in l else (l.append(i+1) if s[i] == 'm' and i < len(s)-1 and s[i+1] == 's' else None) for i in range(len(s))] else None)(input(), []))) for t in range(int(input()))]
