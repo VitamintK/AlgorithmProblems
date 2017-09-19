@@ -1,0 +1,1 @@
+[print((lambda S: (lambda f: f(S, 0, -1, f))(lambda s, i, state, f: 0 if i >= len(s) else (1+f(s, i+1, 0, f) if state == 1 and s[i] == '1' else f(s, i+1, (0 if s[i] == '1' else (1 if s[i] == '0' and state in (0,1) else -1)), f))))(input())) for i in range(int(input()))]
