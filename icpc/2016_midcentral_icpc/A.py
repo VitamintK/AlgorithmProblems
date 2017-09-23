@@ -1,14 +1,14 @@
+#read in the input
+a, n = input().split()
+n = int(n)
+pr = input()
+
 #set up adjacency list for directed edges and one for backwards edges (backwards edges for topological sort later)
 from collections import defaultdict
 edges = defaultdict(set)
 rev_edges = defaultdict(set)
 #keep track of all nodes which have no incoming edges (need this to know where to start the topological sort later)
 start_nodes = {x for x in 'abcdefghijklmnopqrstuvwxyz' if x <= a}
-
-#read in the input
-a, n = input().split()
-n = int(n)
-pr = input()
 
 for i in range(n-1):
     x = input()
