@@ -19,6 +19,7 @@ for t in range(T):
         G[1]%=3
         G[2]%=3
     else:
+        #p == 4
         ot = min(G[1], G[3])
         ans += ot
         ans += G[2]//2

@@ -1,0 +1,1 @@
+[(lambda _, hs: print("yes" if len(hs)%2==1 and all(i+1==j for i,j in enumerate(hs[:len(hs)//2])) and hs == list(reversed(hs)) else "no"))(input(), [int(x) for x in input().split()]) for p in range(int(input()))]
