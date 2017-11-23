@@ -42,8 +42,17 @@ bool check(ll length){
 	//Now we do Tarjan's algorithm to find if there's a strongly connected component.
 	//If x_i and -x_i are in the same strongly connected component, then there's no solution.
 	//https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm#The_algorithm_in_pseudocode
+	ll index = 0;
+	vector<ll> S;
+	vector<ll> indices(n, -1);
+	vector<ll> lowlink(n, -1);
 	for(ll i = 0; i < n; i++){
-		
+		if(indices[i] == -1){
+			indices[i] = index;
+			lowlink[i] = index;
+			index++;
+			S.push_back(i);
+		}
 	}
 }
 
