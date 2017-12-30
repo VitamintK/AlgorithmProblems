@@ -1,3 +1,4 @@
+#THIS SOLUTION HAS PRECISION ERRORS.  (need to reduce floating point precision errors)
 B = int(input())
 ss = [0]
 ps = [0]
