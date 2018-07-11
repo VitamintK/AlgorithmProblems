@@ -10,6 +10,7 @@ for i in range(35):
     for j in range(35):
         if i>0 or j>0:
             rbs.append((i,j))
+            
 for i in range(len(rbs)):
     red, blue = rbs[i]
     for j in range(len(DP)):
