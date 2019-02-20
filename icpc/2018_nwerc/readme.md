@@ -1,0 +1,1 @@
+doing NAIPC practice contest 5 on kattis, which is nwerc 2018: https://open.kattis.com/contests/na19warmup5/standings

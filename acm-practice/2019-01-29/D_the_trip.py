@@ -12,7 +12,7 @@ while True:
     # so if this were continuous and not discrete, everyone would get mean=sum(cents)/len(cents) in the end.
     # since it is discrete, everyone ends up with either ceil(mean) or floor(mean) cents.
     # We need to figure out how many people get floor(mean) and how many get ceil(mean).  It seems stupidly easy but since I'm a literal idiot I can only think of the O(N) way to do it.
-    # Please make a pull request for the O(1) way to do it.
+    # Please make a pull request for the O(1) way to do it, which probably definitely exists, right?
     num_who_get_shafted = None #stores the number of people who get floor(mean) cents
     shaft_amount = sum(cents)//len(cents)
     for i in range(len(cents)+1):
