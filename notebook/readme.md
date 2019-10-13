@@ -1,0 +1,1 @@
+Code Snippets that I can copy-paste when I need a certain algorithm.
