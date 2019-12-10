@@ -76,7 +76,7 @@ for ast in asts:
 asts2.sort(key = lambda x: (x[0] + pi/2)%(2*pi))
 cnt = {z: [y for y in asts2 if y[0] == z] for z in [x[0] for x in asts2]}
 for cn in cnt:
-    cnt[cn].sort(key = lambda x: (r - x[1][0]) * (r - x[1][0]) + (c - x[1][1]) * (c-x[1][1]), reverse=True)
+    cnt[cn].sort(key = lambda x: (r - x[1][0]) * (r - x[1][0]) + (c - x[1][1]) * (c-x[1][1]))
 for p in cnt:
     print(cnt[p])
 print(asts2)
