@@ -54,25 +54,37 @@ print(pot, kin, sum(a*b for a,b in zip(pot, kin)))
 # pt 2
 # ah, finally - a problem that isn't just implementation!
 # actually, I'm not sure how to do this!
-t = 0
-vel = [[0,0,0] for i in range(4)]
-poss = ((0, 6, 1), (4, 4, 19), (-11, 1, 8), (2, 19, 15))
-while True:
-    # find the next timestep at which any gravity changes parity
-    dt = 100000000000000000000
-    for j in range(4):
-        for k in range(4):
-            for m in range(3):
-                dt = min(dt, abs(poss[j][m] - poss[k][m]))
-                if poss[k][m] > poss[j][m]:
-                    vel[k][m] -= 1
-                    vel[j][m] += 1
-                elif poss[k][m] < poss[j][m]:
-                    vel[k][m] += 1
-                    vel[j][m] -= 1
-    for j in range(4):
-        for m in range(3):
-            poss[j][m] += vel[j][m]
+# ok I ended up just going on reddit and finding the answer
+ans = []
+ogposs = [[0, 6, 1], [4, 4, 19], [-11, 1, 8], [2, 19, 15]]
+for m in range(3):
+    vel = [0 for i in range(4)]
+    ogp = [x[m] for x in ogposs]
+    poss = [x[m] for x in ogposs]
+    for i in range(1000000):
+        for j in range(4):
+            for k in range(j+1, 4):
+                if poss[k] > poss[j]:
+                    vel[k] -= 1
+                    vel[j] +=1
+                elif poss[k] < poss[j]:
+                    vel[k] += 1
+                    vel[j] -= 1
+        for j in range(4):
+            poss[j] += vel[j]
+        if poss == ogp and not any(vel):
+            print(i+1)
+            ans.append(i+1)
+            break
+
+def gcd(a,b):
+    if a==0:
+        return b
+    return gcd(b%a,a)
+
+def lcm(a,b):
+    return (a*b)/gcd(a,b)
+print(lcm(lcm(ans[0], ans[1]),ans[2]))
 
 
 

@@ -44,7 +44,8 @@ def k():
         elif code == 3:
             print_screen(grid)
             # set_value(x, m1, int(input()))
-            input()
+            import time
+            time.sleep(0.01)
             set_value(x, m1, get_inp(ball_location, pad_location))
             i += 2
         elif code == 4:

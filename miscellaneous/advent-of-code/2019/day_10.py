@@ -33,6 +33,7 @@ for r in range(len(grid)):
             asts.append((r,c))
 
 maxans = 0
+base = None
 for main in asts:
     r, c = main
     slopes = defaultdict(lambda: [0, 0]) # MIGHT NEED FRACTIONS not floats
@@ -50,6 +51,7 @@ for main in asts:
             ans += 1
             slopes[slope][parity] = True
     if ans > maxans:
+        base = main
         print(r, c)
     maxans = max(ans, maxans)
 print(maxans)
@@ -57,12 +59,11 @@ print(maxans)
 #23, 17
 # part 2
 from math import atan2, pi
-main = (23, 17)
-r, c = main
+r, c = base
 asts2 = []
 for ast in asts:
     ar, ac = ast
-    if ast == main:
+    if ast == base:
         continue
     # if ac == c:
     #     if ar < r:
