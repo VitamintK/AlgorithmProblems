@@ -68,7 +68,7 @@ for e in edges:
     print(e, edges[e])
 while len(pq) > 0:
     d, collected, cur = heappop(pq)
-    # print(d, collected, cur)
+    print(d, collected, cur)
     if len(collected) == len(keys):
         print(d, collected, cur)
         break
