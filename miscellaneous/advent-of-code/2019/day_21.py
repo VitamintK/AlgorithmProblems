@@ -4,17 +4,13 @@ aa = [int(x) for x in input().split(',')]
 
 
 output = ""
-ans = None
-# grid = [[0 for x in range(700)] for y in range(700)]
 class CPU:
-    def __init__(self, tape):# cin = input, cout = print):
+    def __init__(self, tape):
         self.a = tape[:] + [0]*10000
         self.i = 0
         self.rel_base = 0
-        # self.cin = cin
-        # self.cout = cout
     def run(self):
-        global ans
+        global output
         def get_value(value, mode):
             if mode == 2:
                 return self.a[value + self.rel_base]
@@ -47,13 +43,15 @@ class CPU:
                 set_value(z, m3, new_val)
                 self.i += 4
             elif code == 3:
+                # GET INPUT
                 n = inputs.pop()
                 set_value(x, m1, n)
                 self.i += 2
             elif code == 4:
-                out = get_value(x, m1)
-                ans = out
-                # yield out
+                # OUTPUT
+                out = get_value(x, m1) # to get the answer when it all works
+                # output +=  chr(out) # to print the debug outputs
+                print(out)
                 self.i += 2
             elif code == 5:
                 if get_value(x, m1):
@@ -82,36 +80,33 @@ class CPU:
                 self.i += 2
             else:
                 raise ValueError(a[i])
-# this code sucks ass 
-for i in range(950, 1400):
-    for j in range(i//4, i):
-        print(i,j)
-        good = True
-        inputs = [i, j]
-        c = CPU(aa)
-        c.run()
-        print(ans)
-        if not ans:
-            continue
-        for col in range(99,100):
-            inputs = [i+col, j]
-            c = CPU(aa)
-            c.run()
-            if not ans:
-                good = False
-                break
-        for r in range(99,100):
-            inputs = [i, j+r]
-            c = CPU(aa)
-            c.run()
-            if not ans:
-                good = False
-                break
-        if good:
-            print(j*10000 + i)
-            exit()
-        # break
-# c = CPU(aa)
-# inputs = [1000, 500]
-# c.run()
-print(ans)
+
+c = CPU(aa)
+# PART 1:
+# inputs = """NOT A T
+# OR T J
+# NOT B T
+# OR T J
+# NOT C T
+# OR T J
+# AND D J
+# WALK
+# """
+
+# PART 2:
+inputs = """NOT A T
+OR T J
+NOT B T
+OR T J
+NOT C T
+OR T J
+AND D J
+AND E T
+OR H T
+AND T J
+RUN
+"""
+inputs = list(ord(x) for x in inputs)
+inputs.reverse()
+c.run()
+print(output)
