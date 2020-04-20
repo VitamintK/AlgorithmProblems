@@ -1,5 +1,11 @@
 # wow, google code jam just had a pascal triangle problem xD
 
+# update after contest: ok fuck this problem... 
+# i think my solution is correct but the numbers get 
+# too outrageously big/small so the fix is to 
+# store everything as logs.
+# it was a good learning experience tho
+
 T = int(input())
 # fact_cache = [1]
 # for i in range(1,200005):
