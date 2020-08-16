@@ -13,11 +13,6 @@ def can(secs):
             r = max(q, r)
             splosions +=1
             time_used = (r-l) + splosions*S + min((p-l),(r-p))
-            # if p>=q or not already_added_left:
-            #     time_used+=abs(p-q)
-                
-            # if q < p:
-            #     already_added_left = True
             if time_used <= secs:
                 qpt += 1
             else:
