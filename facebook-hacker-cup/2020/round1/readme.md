@@ -1,6 +1,6 @@
 [Round 1](https://www.facebook.com/codingcompetitions/hacker-cup/2020/round-1)
 
-371 / 13,820
+371 / 13,820, advanced to round 2
 
 finished A1, A3, and B
 
