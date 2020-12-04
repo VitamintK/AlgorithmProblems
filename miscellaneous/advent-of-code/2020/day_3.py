@@ -31,15 +31,43 @@ octs = [(0,1),(1,1),(1,0),(1,-1),(0,-1),(-1,-1),(-1,0),(-1,1)]
 def is_grid_valid(n,m, r,c,):
     return (0<=r<n) and (0<=c<m)
 
-if True:
+if False:
     ans = 0
-
+    grid = []
+    i = 0
     while True:
         try:
-            # read input here
+            a = input()
+            # grid.append(a)
+            if a[i%len(a)] == '#':
+                ans +=1
+                # print(a)
+            i += 3
         except EOFError:
             break
     
     print(ans)
 else:
-    pass
+    grid = []
+    while True:
+        try:
+            a = input()
+            grid.append(a)
+        except EOFError:
+            break
+    slopes = [(1,1),(3,1),(5,1),(7,1),(1,2)]
+    anss = 1
+    for dx,dy in slopes:
+        c = 0
+        ans = 0
+        for i,row in enumerate(grid):
+            if i%dy != 0:
+                continue
+            if row[c%len(row)] == '#':
+                ans += 1
+            c += dx
+        anss *= ans
+
+   
+    
+    print(anss)
