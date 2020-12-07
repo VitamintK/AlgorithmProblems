@@ -27,6 +27,13 @@ import sys
 
 sys.setrecursionlimit(100000)
 
+def dfs(children, k):
+    ans = 1
+    for child, num in children[k]:
+        # print(k, child, num)
+        ans += num*dfs(children, child)
+    return ans    
+
 def get_ints(s):
     return list(map(int, re.findall(r"-?\d+", s)))  # copied from mcpower from mserrano on betaveros' recommendation
 alphabet='abcdefghijklmnopqrstuvwxyz'
@@ -37,13 +44,41 @@ def is_grid_valid(n,m, r,c,):
 
 if True:
     ans = 0
-
+    parents = defaultdict(set)
+    children = defaultdict(set)
     while True:
         try:
-            # read input here
+            k, v = input().split(' contain ')
+            
+            if v.strip() == 'no other bags.':
+                continue
+            v = v.split(',')
+            k = ' '.join(k.split()[:-1])
+            for child in v:
+                child = child.strip()
+                num = child.split()[0]
+                child = ' '.join(child.split()[1:-1])
+                parents[child].add(k)
+                children[k].add((child, int(num)))
         except EOFError:
             break
-    
-    print(ans)
+    frontier = ['shiny gold']
+    print(parents)
+    visited = set()
+    while len(frontier) > 0:
+        ex = frontier.pop()
+        print(ex)
+        if ex in visited:
+            continue
+        visited.add(ex)
+        for p in parents[ex]:
+            if p in visited:
+                continue
+            frontier.append(p)
+    print(len(visited))
+
+    #part 2
+    print(dfs(children, 'shiny gold'))
+
 else:
     pass
