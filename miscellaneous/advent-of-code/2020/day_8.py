@@ -36,13 +36,39 @@ def is_grid_valid(n,m, r,c,):
 
 if True:
     ans = 0
-
+    insG = []
     while True:
         try:
-            # read input here
+            i, v = input().split()
+            v = int(v)
+            insG.append((i,v))
         except EOFError:
             break
     
-    print(ans)
+    trans = {'jmp':'nop', 'nop':'jmp', 'acc':'acc'}
+    for i in range(len(insG)):
+        ins = insG[:]
+        ins[i] = (trans[ins[i][0]], ins[i][1])
+        visited = set()
+        acc = 0
+        i = 0
+        while i not in visited:
+            if i == len(ins):
+                print(acc)
+                print("!!!!")
+                break
+            if i > len(ins):
+                break
+            visited.add(i)
+            if ins[i][0] == 'nop':
+                i +=1
+                continue
+            elif ins[i][0] == 'acc':
+                acc += ins[i][1]
+                i += 1
+            else:
+                i += ins[i][1]
+        
+
 else:
     pass
