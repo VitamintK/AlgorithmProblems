@@ -56,6 +56,7 @@ if True:
             threes+=1
     print(ones*threes)
 
+    # part 2
     dp = [0 for i in range(len(ins))]
     dp[0] = 1
     for i in range(len(ins)):
