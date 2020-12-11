@@ -36,13 +36,14 @@ def is_grid_valid(n,m, r,c,):
 
 if True:
     ans = 0
-
+    inps = []
     while True:
         try:
-            # read input here
+            inps.append(input())
         except EOFError:
             break
     
+
     print(ans)
 else:
     pass
