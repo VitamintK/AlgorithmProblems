@@ -75,18 +75,11 @@ if True:
         except EOFError:
             break
     
-    visited = set()
-    i = 0
     while True:
-        # print(g)
         ng = get_next(g)
-        # print(g)
         if ser(ng) == ser(g):
             break
         g = ng
-        # visited.add(s)
-        i+=1
-    # print(i)
     print(sum(r.count('#') for r in g))
     # print(ans)
 else:
