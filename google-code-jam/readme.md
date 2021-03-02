@@ -3,23 +3,23 @@ qual: 14185
 round 1c: 1009 (top 1000 qualified 😬)
 
 ### 2017:
-qual: 980
-round 1b: 796
+qual: 980  
+round 1b: 796  
 round 2: 1708
 
 ### 2018:
-qual: 7307
-round 1a: 279
+qual: 7307  
+round 1a: 279  
 round 2: 1471
 
 ### 2019:
-qual: 16656
-round 1a: 1780
-round 1c: 376
+qual: 16656  
+round 1a: 1780  
+round 1c: 376  
 round 2: 2443
 
 ### 2020:
-qual: 22077
-round 1a: 1935
-round 1b: 752
+qual: 22077  
+round 1a: 1935  
+round 1b: 752  
 round 2: 2409
