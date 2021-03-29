@@ -10,8 +10,6 @@ for tt in range(T):
         if distance < 0:
             c = -1
             break
-        # while ans[i+distance] > 0 and distance > 0:
-        #     distance -= 1
         pos = i + distance
         ans[i] = largest
         largest -= 1
@@ -20,11 +18,6 @@ for tt in range(T):
         ans[i:pos+1] = reversed(ans[i:pos+1])
         # print(ans)
         c -= distance+1
-        # print(ans, c)
-    # for i,j in reversed(stack):
-    #     print(ans, ans[i:j])
-    #     ans[i:j] = reversed(ans[i:j])
-    # print(ans)
     if c != 0:
         ans = "IMPOSSIBLE"
     else:
