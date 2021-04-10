@@ -23,3 +23,7 @@ qual: 22077
 round 1a: 1935  
 round 1b: 752  
 round 2: 2409
+
+### 2021:
+qual: 15741
+round 1a: 750
