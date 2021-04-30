@@ -1,3 +1,4 @@
+// g++ -std=c++17 x.cpp && ./a.out
 #include <iostream> 
 #include <string> 
 #include <set> 
