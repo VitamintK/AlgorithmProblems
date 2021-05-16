@@ -26,4 +26,5 @@ round 2: 2409
 
 ### 2021:
 qual: 15741  
-round 1a: 744
+round 1a: 744  
+round 2: 1806 (but would have been 950ish if I didn't forget sys.setrecursionlimit!!!)
