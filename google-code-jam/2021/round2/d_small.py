@@ -1,3 +1,5 @@
+# DOESN'T WORK: you need to do max bipartite matching, not just greedy
+
 T = int(input())
 def opp(x):
     if x=='M':
