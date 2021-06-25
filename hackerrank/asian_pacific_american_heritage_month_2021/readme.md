@@ -1,0 +1,1 @@
+I guess (python?) recursion uses too much of the stack and segfaults hackerrank, so I lost a bunch of time.  I think I would have been firstish place?  Ended up with 8th place, finishing in 1:07:53.
