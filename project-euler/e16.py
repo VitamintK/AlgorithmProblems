@@ -1,0 +1,3 @@
+# thank god for python... no idea how i'd do this in any language without bignum...
+ans = pow(2,1000)
+print(sum(int(x) for x in str(ans)))

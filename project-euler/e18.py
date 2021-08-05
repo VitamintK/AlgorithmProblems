@@ -1,0 +1,45 @@
+# big one for me since I first tried solving this before going to college 
+# in July 2014 and couldn't solve it: https://github.com/VitamintK/FrivolousStuffs/blob/master/euler18.go
+# let's see if i can now :P
+
+if False:
+    # problem 18
+    s = """75
+95 64
+17 47 82
+18 35 87 10
+20 04 82 47 65
+19 01 23 75 03 34
+88 02 77 73 07 63 67
+99 65 04 28 06 16 70 92
+41 41 26 56 83 40 80 70 33
+41 48 72 33 47 32 37 16 94 29
+53 71 44 65 25 43 91 52 97 51 14
+70 11 33 28 77 73 17 78 39 68 17 57
+91 71 52 38 17 14 91 43 58 50 27 29 48
+63 66 04 68 89 53 67 30 73 16 69 87 40 31
+04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
+
+    grid = []
+    for line in s.split('\n'):
+        grid.append([int(x) for x in line.split()])
+else:
+    # problem 67
+    grid = []
+    from sys import stdin
+    for line in stdin:
+        grid.append([int(x) for x in line.split()])
+
+
+from functools import lru_cache
+@lru_cache
+def get_best(r, c):
+    ans = grid[r][c]
+    if r == len(grid)-1:
+        return ans
+    child1, child2 = (r+1, c), (r+1, c+1)
+    return ans + max(get_best(*child1), get_best(*child2))
+
+print(get_best(0,0))
+
+# woohoo!  Glad to hear that 4 years of college education, 2 years of wageslaving, and a year of dicking around weren't for naught!
