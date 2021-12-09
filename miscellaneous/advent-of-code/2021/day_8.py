@@ -71,11 +71,7 @@ if True:
                 outdict[2] = x
             else:
                 outdict[5] = x
-        # a,b,c = nd[5]
-        # if set(a) & set(outdict[1]):
-            # a,b = b,a
-        # outdict[3] = a
-        # outdict[5] = b
+        
         for x in nd[6]:
             if len(set(x) & set(outdict[5])) != 5:
                 outdict[0] = x
