@@ -1,3 +1,13 @@
+# i kind of made a super hacky solution that i don't fully understand
+# i figured out how to set w so that w==x for the next iteration if w == 9
+# then i picked random numbers if that's not possible
+# and a solution was found very quickly.
+# then I tried part 2 but it didn't work so I made it choose a number randomly at all times
+# and trial and errored to find some upper-bounds on the actual answer
+# and hardcoded more and more constraints to fit the upper-bound.
+# and found an answer that way.
+# in hindsight, I think I should have changed the w==9 constraint to w==1 or something
+
 from collections import defaultdict, deque, Counter
 # d = deque()
 # d.append(5)
@@ -103,17 +113,17 @@ if True:
             x += ks[i]
 
             # print(x,y,z)
-            if i == 0:
-                w = 7
-            elif i == 1:
-                w = 3
-            elif i == 2:
-                w = 1
-            # elif i == 3:
-            #     w = 9
+            # if i == 0:
+            #     w = 7
+            # elif i == 1:
+            #     w = 3
+            # elif i == 2:
+            #     w = 1
+            if False:
+                pass
             else:
                 if 0 < x < 10:
-                    if random.random() < 0.1:
+                    if random.random() < 0:
                         w = random.randint(1,x)
                     else:
                         w = x
