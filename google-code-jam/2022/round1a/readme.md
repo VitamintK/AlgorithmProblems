@@ -1,0 +1,1 @@
+Made the eternal mistake of getting high at 6 PM before the contest at 9 PM. To make it worse it was edibles, so I was still quite high during this contest. Made 10 (ten!) RE/WA submissions for problem B, with a variety of dumb mistakes, and didn't solve C (it was actually really hard-- I should have just tried to solve C small). Did not qualify: got 2118th place.
