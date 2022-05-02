@@ -6,4 +6,4 @@ B was tough. B-small was very easy, but B-large confounded me for a long time. I
 
 C actually looked cool, but my 7 AM brain was too weak to seriously try to solve it. Looks like DP is the intended solution for small, and probably a smart DP works for large as well?
 
-I ended up qualifying with a tentative 712th place.
+I ended up qualifying with a tentative 686rd place.
