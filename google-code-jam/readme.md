@@ -28,3 +28,9 @@ round 2: 2409
 qual: 15741  
 round 1a: 744  
 round 2: 1806 (but would have been 950ish if I didn't forget sys.setrecursionlimit!!!)
+
+### 2022:
+qual: 2791  
+round 1a: 2117  
+round 1c: 686  
+round 2: 1091 (tentative)  
