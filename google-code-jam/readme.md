@@ -33,4 +33,4 @@ round 2: 1806 (but would have been 950ish if I didn't forget sys.setrecursionlim
 qual: 2791  
 round 1a: 2117  
 round 1c: 686  
-round 2: 1091 (tentative)  
+round 2: 1089

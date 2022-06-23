@@ -48,7 +48,7 @@ func makePrevGreater(values []int) []int {
 	return prevGreater
 }
 
-func query(segtree []int) int {
+func query(segtree []int, root int, l int, r int) int {
 
 }
 
