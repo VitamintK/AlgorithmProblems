@@ -46,7 +46,6 @@ int main(){
     for(int t=0; t < T; t++){
         int n;
         cin >> n;
-        // vector<vector<int> > edges(n, vector<int>(0));
         edges.resize(n);
         edges.clear();
         int highest_degree = -1;
