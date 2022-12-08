@@ -46,13 +46,17 @@ if True:
     #         break
     inp = input()
     buff = []
-    for i in range(len(inp)):
-        buff.append(inp[i])
-        if len(buff) > 14:
-            buff = buff[1:]
-        if len(set(buff)) == 14:
-            print(i+1)
+    for i in range(4,len(inp)):
+        x = inp[i-14:i]
+        if len(set(x)) == 14:
+            print(i)
             break
+        # buff.append(inp[i])
+        # if len(buff) > 14:
+        #     buff = buff[1:]
+        # if len(set(buff)) == 14:
+        #     print(i+1)
+        #     break
 
     print(ans)
 else:
