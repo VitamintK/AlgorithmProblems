@@ -44,7 +44,6 @@ if False:
             inps.append([int(x) for x in input()])
         except EOFError:
             break
-    visible = [[0 for x in row] for row in inps]
     for r in range(len(inps)):
         for c in range(len(inps[r])):
             xs = [
