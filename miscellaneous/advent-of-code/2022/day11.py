@@ -41,16 +41,48 @@ def sign_of(x):
         return 0
     return x/abs(x)
 
+def make_operation(s):
+    return lambda old: eval(s)
+
 if True:
     ans = 0
     inps = []
+    monkeys = []
+    bigmod = 1
     while True:
         try:
-            inps.append(input())
+            inp = input()
+            if inp == '':
+                continue
+            inp = inp.split()
+            if inp[0] == 'Monkey':
+                items = get_ints(input())
+                operation = input().split()
+                operation = make_operation(' '.join(operation[-3:]))
+                mod = get_ints(input())[0]
+                bigmod *= mod
+                nexts = (get_ints(input())[0], get_ints(input())[0])
+                monkeys.append((items, operation, mod, nexts))
         except EOFError:
             break
-    
-
+    counts = defaultdict(int)
+    for i in range(10000):
+        print(i)
+        for id, monkey in enumerate(monkeys):
+            items, operation, mod, nexts = monkey
+            for item in items:
+                counts[id] += 1
+                new_item = operation(item)
+                # new_item //= 3 # part 1
+                new_item %= bigmod # part 2
+                if new_item%mod==0:
+                    monkeys[nexts[0]][0].append(new_item)
+                else:
+                    monkeys[nexts[1]][0].append(new_item)
+            items.clear()
     print(ans)
+    counts = list(counts.values())
+    counts.sort()
+    print(counts[-1] * counts[-2])
 else:
     pass

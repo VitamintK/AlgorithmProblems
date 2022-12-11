@@ -49,6 +49,40 @@ if True:
             inps.append(input())
         except EOFError:
             break
+    reg = 1
+    effect = dict()
+    cycle = 0
+    pixels = []
+    for i in range(len(inps)):
+        inp = inps[i]
+        if inp == 'noop':
+            cycle %= 40
+            cycle += 1
+            if abs(cycle-1-reg) <= 1:
+                pixels.append('#')
+            else:
+                pixels.append('.')
+            # if cycle%40==20 and cycle>0:
+            #     print(cycle, reg, cycle*reg)
+            #     ans += cycle * reg
+        else:
+            _, x = inp.split()
+            x = int(x)
+            for j in range(2):
+                cycle %= 40
+                cycle += 1
+                if abs(cycle-1-reg) <= 1:
+                    pixels.append('#')
+                else:
+                    pixels.append('.')
+                # if cycle%40==20 and cycle>0:
+                #     print(cycle, reg, cycle*reg)
+                #     ans += cycle * reg
+            reg += x
+    print(pixels)
+    for i in range(6):
+        print(''.join(pixels[40*i:40*i+40]))
+
     
 
     print(ans)
