@@ -101,6 +101,8 @@ if True:
             i += 1
         except EOFError:
             break
+
+    print(ans)
     alls.append([[2]])
     alls.append([[6]])
     alls = [C(x) for x in alls]
