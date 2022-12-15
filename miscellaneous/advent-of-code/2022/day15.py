@@ -44,18 +44,49 @@ def sign_of(x):
 def man(x,y,xx,yy):
     return abs(x-xx)+abs(y-yy)
 
-if True:
-    # Y=10
+if False:
+    # PART 1
+    Y=2000000
     ans = 0
     inps = []
     while True:
         try:
             x,y,xx,yy = get_ints(input())
-
             inps.append([x,y,xx,yy])
         except EOFError:
             break
-    for i in range(3000000,4000000):
+    intervals = []
+    for x,y,xx,yy in inps:
+        distance = man(x,y,xx,yy)
+        y_dist = abs(y-Y)
+        if y_dist > distance:
+            continue
+        dx = distance-y_dist
+        intervals.append((x-dx, x+dx))
+    intervals.sort()
+    n_intervals = []
+    for l,r in intervals:
+        if len(n_intervals)==0 or l>n_intervals[-1][1]:
+            n_intervals.append((l,r))
+            continue
+        r = max(r,n_intervals[-1][1])
+        ll,rr = n_intervals.pop()
+        n_intervals.append((ll,r))
+    print(n_intervals)
+    for l,r in n_intervals:
+        ans += r-l+1
+    print(ans)
+else:
+    # PART 2
+    ans = 0
+    inps = []
+    while True:
+        try:
+            x,y,xx,yy = get_ints(input())
+            inps.append([x,y,xx,yy])
+        except EOFError:
+            break
+    for i in range(4000000):
         intervals = []
         for x,y,xx,yy in inps:
             distance = man(x,y,xx,yy)
@@ -75,9 +106,3 @@ if True:
             n_intervals.append((ll,r))
         if len(n_intervals) > 1:
             print(i, n_intervals)
-        # print(n_intervals)
-        # for l,r in n_intervals:
-        #     ans += r-l+1
-        # print(ans)
-else:
-    pass
