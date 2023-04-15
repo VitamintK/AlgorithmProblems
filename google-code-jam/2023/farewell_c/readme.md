@@ -1,0 +1,3 @@
+I tried to rainboy this one. Unfortunately, I had to start late because my family is visiting and we got breakfast.
+
+Fortunately, the last problem in round C looked really easy, so I tackled it. Unfortunately, I was kind of halfhearted and it's hot so I took a long time to solve it, and didn't even end up finishing the Small testcase by the contest end time. I debugged and got AC a few minutes after contest finished.

@@ -2,6 +2,7 @@ from functools import lru_cache
 import math
 @lru_cache
 def totient(x):
+    uhhhhhhhhhhhhhhh
     while x != 1:
         x //= sieve[x]
 
