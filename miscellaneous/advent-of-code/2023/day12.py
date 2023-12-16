@@ -24,7 +24,6 @@ import string
 # string.ascii_uppercase == 'ABCDE...'
 from functools import lru_cache
 # @lru_cache(maxsize=None)
-import numpy as np
 
 import sys
 
@@ -41,11 +40,8 @@ def sign_of(x):
     if x==0:
         return 0
     return x/abs(x)
-####################################
 
-PART = 1
-# PART = 2
-if PART == 1:
+if True:
     ans = 0
     inps = []
     while True:
@@ -53,7 +49,38 @@ if PART == 1:
             inps.append(input())
         except EOFError:
             break
-    
+    for inp in inps:
+        s, xs = inp.split()
+        s = [s] * 5
+        s = '?'.join(s)
+        xs += ','
+        xs *= 5
+        xs = get_ints(xs)
+        ys = [0]
+        c = 0
+        for x in xs:
+            c += x
+            ys.append(c)
+        dp = [[0 for i in range(ys[-1]+1)], [0 for i in range(ys[-1]+1)]]
+        # dp[0] = last was empty, dp[1] = last was full
+        dp[0][0] = 1
+        for x in s:
+            new_dp = [[0 for i in range(ys[-1]+1)], [0 for i in range(ys[-1]+1)]]
+            if x in '.?':
+                for i in range(0, ys[-1]+1):
+                    if i in ys:
+                        new_dp[0][i] += dp[0][i] + dp[1][i]
+                    else:
+                        new_dp[0][i] += dp[0][i]
+            if x in '#?':
+                for i in range(1, ys[-1]+1):
+                    if i-1 in ys:
+                        new_dp[1][i] += dp[0][i-1]
+                    else:
+                        new_dp[1][i] += dp[1][i-1]
+            dp = new_dp
+        print(dp[0][-1] + dp[1][-1])
+        ans += dp[0][-1] + dp[1][-1]
 
     print(ans)
 else:

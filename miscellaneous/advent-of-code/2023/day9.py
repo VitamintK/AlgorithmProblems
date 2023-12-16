@@ -24,7 +24,6 @@ import string
 # string.ascii_uppercase == 'ABCDE...'
 from functools import lru_cache
 # @lru_cache(maxsize=None)
-import numpy as np
 
 import sys
 
@@ -41,20 +40,30 @@ def sign_of(x):
     if x==0:
         return 0
     return x/abs(x)
-####################################
 
-PART = 1
-# PART = 2
-if PART == 1:
+def go(xs):
+    ds = [xs[:]]
+    while not all(x==0 for x in ds[-1]):
+        d = ds[-1]
+        nd = []
+        for i in range(1,len(d)):
+            nd.append(d[i]-d[i-1])
+        ds.append(nd)
+    p = 0
+    for d in reversed(ds):
+        p = d[0] - p
+    return p
+
+if True:
     ans = 0
     inps = []
     while True:
         try:
-            inps.append(input())
+            inp = input()
+            ans += go(get_ints(inp))
         except EOFError:
             break
     
-
     print(ans)
 else:
     pass

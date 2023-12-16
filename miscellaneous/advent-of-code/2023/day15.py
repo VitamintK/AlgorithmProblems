@@ -41,20 +41,68 @@ def sign_of(x):
     if x==0:
         return 0
     return x/abs(x)
-####################################
 
-PART = 1
-# PART = 2
-if PART == 1:
+if False:
     ans = 0
     inps = []
     while True:
         try:
-            inps.append(input())
+            inps = input().split(',')
         except EOFError:
             break
-    
+    def f(s):
+        cur = 0
+        for c in s:
+            cur += ord(c)
+            cur *= 17
+            cur %= 256
+        return cur
+    for x in inps:
+        ans += f(x)
+
+
 
     print(ans)
 else:
-    pass
+    ans = 0
+    inps = []
+    while True:
+        try:
+            inps = input().split(',')
+        except EOFError:
+            break
+    def f(s):
+        cur = 0
+        for c in s:
+            cur += ord(c)
+            cur *= 17
+            cur %= 256
+        return cur
+    boxes = [[] for i in range(256)]
+    for x in inps:
+        if '=' in x:
+            h = f(x[:-2])
+            l = x[:-2]
+            j = int(x[-1])
+            for i in range(len(boxes[h])):
+                if boxes[h][i][0] == l:
+                    boxes[h][i] = (l, j)
+                    break
+            else:
+                boxes[h].append((l, j))
+        else:
+            h = f(x[:-1])
+            l = x[:-1]
+            for i in range(len(boxes[h])):
+                if boxes[h][i][0] == l:
+                    boxes[h].pop(i)
+                    break
+    for i in range(256):
+        for j in range(len(boxes[i])):
+            ans += boxes[i][j][1] * (i+1) * (j+1)
+        
+    
+
+
+
+    print(ans)
