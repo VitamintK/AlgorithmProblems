@@ -262,3 +262,5 @@ acm-practice/2017-11-30/*.ans
 facebook-hacker-cup/**/*.txt
 facebook-hacker-cup/**/*.zip
 
+**/advent-of-code/**/*.html
+**/advent-of-code/**/*.answer
