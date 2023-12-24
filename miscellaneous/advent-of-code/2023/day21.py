@@ -113,7 +113,8 @@ else:
                 return
             for dr, dc in dirs:
                 nr, nc = r+dr, c+dc
-                if is_grid_valid(R,C, nr,nc) and inps[nr][nc] == '.':
+                # if is_grid_valid(R,C, nr,nc) and inps[nr][nc] == '.':
+                if inps[nr%R][nc%C] == '.':
                     if (nr, nc, i+1) in been:
                         continue
                     been.add((nr, nc, i+1))
@@ -144,26 +145,35 @@ else:
                 if is_grid_valid(R,C, nr,nc) and inps[nr][nc] == '.':
                     q.append((nr, nc, i+1))
         return shortest
-    shortest = get_shortest(sr, sc)
-    N = 26501365
-    N = 50
-    full = get_for_x(sr, sc, 200 + N%2)
-    corners = [(0,0), (0,C-1), (R-1,0), (R-1,C-1)]
-    corner_invs = [(R-1,C-1), (R-1,0), (0,C-1), (0,0)]
-    lengths = (N-R) // R
-    print(lengths)
-    for (dest_r, dest_c), (from_r, from_c) in zip(corners, corner_invs):
-        l = shortest[(dest_r, dest_c)]
-        # full, inside
-        ans += (lengths * (lengths-1)) // 2 * full
-        # partial, outside
-        ans += lengths * get_for_x(from_r, from_c, (N - l - 2 - (lengths-1)*R))
-        # partial, outside 2
-        xxx = (N - l - 2 - (lengths) * R)
-        if xxx >= 0:
-            ans += (lengths + 1) * get_for_x(from_r, from_c, xxx)
-        # axes
-        ans += ((N-R) // R) * full
-    ans += full
+    # shortest = get_shortest(sr, sc)
+    # N = 26501365
+    # # N = 50
+    # full = get_for_x(sr, sc, 200 + N%2)
+    # corners = [(0,0), (0,C-1), (R-1,0), (R-1,C-1)]
+    # corner_invs = [(R-1,C-1), (R-1,0), (0,C-1), (0,0)]
+    # lengths = (N-R) // R
+    # print(lengths)
+    # for (dest_r, dest_c), (from_r, from_c) in zip(corners, corner_invs):
+    #     l = shortest[(dest_r, dest_c)]
+    #     # full, inside
+    #     ans += (lengths * (lengths-1)) // 2 * full
+    #     # partial, outside
+    #     ans += lengths * get_for_x(from_r, from_c, (N - l - 2 - (lengths-1)*R))
+    #     # partial, outside 2
+    #     xxx = (N - l - 2 - (lengths) * R)
+    #     if xxx >= 0:
+    #         ans += (lengths + 1) * get_for_x(from_r, from_c, xxx)
+    #     # axes
+    #     ans += ((N-R) // R) * full
+    #     # corners
+    # for from_r, from_c in [(R//2, C-1), (R-1, C//2), (R//2, 0), (0, C//2)]:
+    #     ans += get_for_x(from_r, from_c, (N+R//2)%R)
+    # ans += full
 
-    print(ans)
+    # print(ans)
+
+    # Tried to come up with a solution myself but ended up with this mess that didn't work
+    # and is hard to debug. So instead I looked for solutions that others came up with
+    # and got these three points for a quadratic equation which I solved with Wolfram Alpha
+    # https://www.reddit.com/r/adventofcode/comments/18nevo3/2023_day_21_solutions/keal6he/
+    print(get_for_x(sr, sc, 65), get_for_x(sr, sc, 65 + 131), get_for_x(sr, sc, 65 + 131 * 2))
