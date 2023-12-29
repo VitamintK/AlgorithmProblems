@@ -41,6 +41,20 @@ def sign_of(x):
     if x==0:
         return 0
     return x/abs(x)
+
+INTERVAL_TYPE_INCLUSIVE = 0
+INTERVAL_TYPE_EXCLUSIVE = 1
+# def make_interval_class(start_type=INTERVAL_TYPE_INCLUSIVE, end_type=INTERVAL_TYPE_EXCLUSIVE):
+#     class Interval:
+#         start_type = start_type
+#         end_type = end_type
+#         def __init__(self, start, end):
+#             self.start = start
+#             self.end = end
+# def merge(interval_a, interval_b):
+#     interval = (min(interval_a[0], interval_b[0]), max(interval_a[1], interval_b[1]))
+#     if interval[0] > interval[1]:
+#         return None
 ####################################
 
 PART = 1
@@ -53,6 +67,7 @@ if PART == 1:
             inps.append(input())
         except EOFError:
             break
+    R, C = len(inps), len(inps[0])
     
 
     print(ans)

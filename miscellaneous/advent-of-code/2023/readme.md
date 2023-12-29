@@ -8,6 +8,6 @@ I also started writing my own AOC CLI tool: https://github.com/VitamintK/wang-ao
 I really could have just used one that someone else wrote, like https://github.com/wimglenn/advent-of-code-wim, but it's been satisfying to make my own. Up until and including Day 16, I haven't implemented any real time-savers yet (like running on example and real at the same time, and submitting from the CLI), but the command to download the input directly instead of copy-pasting saves me ~2 seconds every day, and the command to automatically create the files (.py, .in) that I use have been nice quality-of-life changes that mean that I only have to get to my computer by 11:59 instead of 11:57.  
 For Day 17, I did implement those real time-savers, which I imagine will shave off one to two dozen seconds every day. 
 
-Barely missed the leaderboard again this year :(
+Barely missed the leaderboard again this year :( Was 10 spots from the leaderboard (110th)
 
 ![](ldrbrd.jpg)
